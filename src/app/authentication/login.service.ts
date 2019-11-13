@@ -19,7 +19,7 @@ export class LoginService {
       this.http.post('/api/login', {email: email, password: password}, {observe:'response'}).subscribe(
         success => {
           resolve({code: 200, message: 'Success'});
-          let response = success.body as { token, username };
+          let response = success.body as { token: string, username: string };
           this.sessionService.saveSession(response.token, response.username);
         },
         failure => {

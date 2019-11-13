@@ -29,8 +29,6 @@ export class LoginComponent implements OnInit {
       response => {
         if (response.code == 200) {
           this.routes.navigate(['/']);
-        } else {
-          
         }
       }
     )
