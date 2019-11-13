@@ -1,0 +1,5 @@
+<div *ngIf='this.logService.messages' class='error-text'>
+  <ul>
+    <li *ngFor="let msg of this.logService.messages">{{msg}}</li>
+  </ul>
+</div>

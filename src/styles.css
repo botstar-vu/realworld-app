@@ -1,1 +1,38 @@
-/* You can add global styles to this file, and also import other style files */
+html, body {
+  font-size: 16px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.tf-default {
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  outline: 0;
+}
+
+.btn-default {
+  float: right;
+  width: 6rem;
+  height: 2rem;
+  background-color: rgb(29, 172, 65);
+  border: none;
+  border-radius: 5px;
+  color: white;
+}
+
+.btn-default:hover {
+  background-color: rgb(9, 131, 39);
+}
+
+.btn-default:disabled {
+  background-color: rgb(94, 197, 120);
+}
+
+.link-default {
+  text-decoration: none;
+  color: rgb(68, 68, 216);
+}
+
+.link-default:hover {
+  text-decoration: none;
+  color: rgb(7, 7, 161);
+}

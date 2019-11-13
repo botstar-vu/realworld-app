@@ -1,1 +1,17 @@
-<p>login works!</p>
+<div class='loginPanel'>
+  <div class='loginTitle'>
+      <h1>Sign in</h1>
+      <app-error-panel></app-error-panel>
+      <a routerLink='register' class='link-default'>Need an account?</a>
+  </div>
+
+  <form #loginForm='ngForm' (ngSubmit)='onSubmit(loginForm)'>
+      <input type='text' class='field tf-default' id='email' placeholder='Email' required
+        [(ngModel)]='email' name='email' (input)='validate(loginForm)'>
+
+      <input type='password' class='field tf-default' id='password' placeholder='Password' required
+        [(ngModel)]='password' name='password' (input)='validate(loginForm)'>
+
+      <button type='submit' class='btn btn-default' [disabled]='!validInput'>Sign in</button>
+  </form>
+</div>
