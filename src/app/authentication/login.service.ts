@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ErrorLogService } from '../shared/error-log.service';
+import { SessionService } from '../shared/session.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,8 @@ export class LoginService {
 
   constructor(
     private http: HttpClient,
-    private errorLog: ErrorLogService
+    private errorLog: ErrorLogService,
+    private sessionService: SessionService
     ) { }
 
   login(email: string, password: string): Promise<{code: number, message: string}> {
@@ -18,7 +20,7 @@ export class LoginService {
         success => {
           resolve({code: 200, message: 'Success'});
           let response = success.body as { token, username };
-          console.log(response);
+          this.sessionService.saveSession(response.token, response.username);
         },
         failure => {
           this.errorLog.clear();
