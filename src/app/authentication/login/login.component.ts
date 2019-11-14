@@ -15,8 +15,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private loginService: LoginService,
-    private routes: Router,
-    private errorLog: ErrorLogService
+    private errorService: ErrorLogService
   ) { }
 
   ngOnInit() {
@@ -27,14 +26,10 @@ export class LoginComponent implements OnInit {
   }
 
   public login(email: string, password: string) {
-    this.errorLog.clear();
+    this.errorService.clear();
     this.loginService.login(email, password).then(
       response => {
-        if (response.code == 200) {
-          this.routes.navigate(['/']);
-        } else {
-          this.errorLog.add(response.message);
-        }
+        this.errorService.add(response.message);
       }
     )
   }
