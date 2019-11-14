@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Article } from '../shared/article.model';
 import { ActivatedRoute } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import { ArticleService } from '../shared/article.service';
 
 @Component({
   selector: 'app-editor',
@@ -14,7 +15,8 @@ export class EditorComponent implements OnInit {
   tags: string;
 
   constructor(
-    private activeRoutes: ActivatedRoute
+    private activeRoutes: ActivatedRoute,
+    private articleService: ArticleService
   ) { }
 
   ngOnInit() {
@@ -31,6 +33,10 @@ export class EditorComponent implements OnInit {
 
   publish() {
     this.article.tags = this.tags.split(' ');
+
+    this.articleService.publish(this.article).then((response) => {
+      if (response) console.log('success');
+    });
   }
 
 }
