@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ErrorLogService } from '../shared/error-log.service';
 import { SessionService } from '../shared/session.service';
 
 @Injectable({
@@ -10,7 +9,6 @@ export class LoginService {
 
   constructor(
     private http: HttpClient,
-    private errorLog: ErrorLogService,
     private sessionService: SessionService
     ) { }
 
@@ -23,8 +21,6 @@ export class LoginService {
           this.sessionService.saveSession(response.token, response.username);
         },
         failure => {
-          this.errorLog.clear();
-          this.errorLog.add(failure.error.msg);
           resolve({code: 401, message: failure.error.msg});
         }
       )
