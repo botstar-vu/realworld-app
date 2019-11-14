@@ -1,0 +1,34 @@
+.avatar {
+  height: 2em;
+  border-radius: 50%;
+}
+
+.link {
+  line-height: 1em;
+  color: rgb(21, 129, 21);
+}
+
+.date {
+  color: #555;
+  font-size: 0.8em;
+  line-height: 1em;
+}
+
+.preview-link {
+  color: black;
+}
+
+.preview-link:hover {
+  text-decoration: none;
+}
+
+.tag-list {
+  list-style-type: none;
+}
+
+.tag {
+  border: solid grey 1px;
+  padding: 0 0.2em 0 0.2em;
+  margin: 0.2em;
+  border-radius: 500px;
+}

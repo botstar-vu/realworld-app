@@ -15,6 +15,8 @@ import { ArticleComponent } from './articles/article/article.component';
 import { EditorComponent } from './articles/editor/editor.component';
 import { ProfileFavoriteComponent } from './user/profile-favorite/profile-favorite.component';
 import { ErrorPanelComponent } from './shared/error-panel/error-panel.component';
+import { ArticleListComponent } from './articles/article-list/article-list.component';
+import { ArticlePreviewComponent } from './articles/article-preview/article-preview.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { ErrorPanelComponent } from './shared/error-panel/error-panel.component'
     ArticleComponent,
     EditorComponent,
     ProfileFavoriteComponent,
-    ErrorPanelComponent
+    ErrorPanelComponent,
+    ArticleListComponent,
+    ArticlePreviewComponent
   ],
   imports: [
     BrowserModule,

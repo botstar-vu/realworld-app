@@ -1,0 +1,17 @@
+<div class='container-fluid preview pl-2 my-1 border-bottom'>
+  <div class='meta'>
+    <img class='avatar d-inline-block media align-top' src='assets/avatar.jpg'>
+    <div class='info ml-1 d-inline-block'>
+      <a class='link' routerLink='profile/{{article.author}}'>{{article.author}}</a>
+      <p class='date my-0'>{{article.time | date:'MMMM dd, yyyy'}}</p>
+    </div>
+  </div>
+  <a routerLink='article/{{article.id}}' class='preview-link'>
+    <h3 class='mb-0 mt-2'>{{article.title}}</h3>
+    <p class='mb-4 mt-0 text-secondary'>{{article.description}}</p>
+    <p class='mb-4 text-secondary d-inline-block'>Read more...</p>
+    <ul class='tag-lis d-inline float-right'>
+      <li *ngFor='let tag of article.tags' class='d-inline-block text-secondary tag'>{{tag}}</li>
+    </ul>
+  </a>
+</div>

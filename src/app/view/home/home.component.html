@@ -1,5 +1,5 @@
 <div class='home-page'>
-  <div class='banner'>
+  <div *ngIf='!this.sessionService.checkSession()' class='banner'>
     <div class='container'>
       <h1 class='h1'>Realworld</h1>
       <p>A project to learn Angular, NodeJS, MongoDB, Bootstrap</p>
@@ -8,10 +8,20 @@
 
   <div class='container page'>
     <div class='row'>
-      <div class='col-9 '>
-        ABC
+      <div class='col-sm-9 px-0'>
+        <div class='feed-toggle'>
+          <button [ngClass]='isPublic ? "btn-free" : "btn-selected"' class='my-2'
+            (click)='requestPersonalFeed()'>
+            Your Feed
+          </button>
+          <button [ngClass]='isPublic ? "btn-selected" : "btn-free"' class='my-2'
+            (click)='requestGlobalFeed()'>
+            Global Feed
+          </button>
+        </div>
+        <app-article-list [articles]='articles'></app-article-list>
       </div>
-      <div class='col-3'>
+      <div class='col-sm-3'>
         XYZ
       </div>
     </div>

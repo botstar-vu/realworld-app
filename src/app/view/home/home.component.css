@@ -4,3 +4,16 @@
   font-weight: 700;
   text-align: center;
 }
+
+.btn-free {
+  background-color: white;
+  outline: 0;
+  border: none;
+}
+
+.btn-selected {
+  background-color: white;
+  border: none;
+  outline: 0;
+  border-bottom: solid black 2px;
+}
