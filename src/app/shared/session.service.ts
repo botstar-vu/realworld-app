@@ -12,6 +12,10 @@ export class SessionService {
     localStorage.setItem('username', username);
   }
 
+  checkSession(): boolean {
+    return localStorage.getItem('token') != null;
+  }
+
   getSession(): {token: string, username: string} {
     return { token: localStorage.getItem('token'), username: localStorage.getItem('username') }
   }

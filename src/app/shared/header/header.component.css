@@ -1,0 +1,16 @@
+.header {
+  background-color: royalblue;
+}
+
+.logo {
+  float: left;
+}
+
+.nav-menu {
+  list-style-type: none;
+  display: inline;
+}
+
+.nav-item {
+  float: right;
+}
