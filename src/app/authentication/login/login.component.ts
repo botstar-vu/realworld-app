@@ -29,7 +29,9 @@ export class LoginComponent implements OnInit {
     this.errorService.clear();
     this.loginService.login(email, password).then(
       response => {
-        this.errorService.add(response.message);
+        if (response.code != 200) {
+          this.errorService.add(response.message);
+        }
       }
     )
   }
