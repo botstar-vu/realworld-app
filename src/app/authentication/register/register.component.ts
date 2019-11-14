@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { RegisterService } from '../register.service';
-import { Router } from '@angular/router';
+import { ErrorLogService } from 'src/app/shared/error-log.service';
 
 @Component({
   selector: 'app-register',
@@ -14,10 +14,11 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private registerService: RegisterService,
-    private routes: Router
+    private errorService: ErrorLogService
     ) { }
 
   ngOnInit() {
+    this.errorService.clear();
   }
 
   onSubmit(form: NgForm) {
@@ -27,7 +28,10 @@ export class RegisterComponent implements OnInit {
   register(email: string, username: string, password: string) {
     this.registerService.register(email, username, password).then(
       (response) => {
-        this.routes.navigate(['/login']);
+        this.errorService.clear();
+        if (response.code != 200) {
+          this.errorService.add(response.msg);
+        }
       }
     )
   }

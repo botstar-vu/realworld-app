@@ -1,7 +1,9 @@
 <div class='text-center'>
   <form #loginForm='ngForm' (ngSubmit)='onSubmit(loginForm)' class='form-signin p-1 m-auto'>
     <h1 class='h3 mb-3 font-weight-normal'>Sign in</h1>
+
     <a routerLink='/register'>Need an account?</a>
+    
     <input type='text' class='form-control my-2' id='email' placeholder='Email' required
       ngModel name='email' (input)='validate(loginForm)'>
 

@@ -1,27 +1,4 @@
-.registerPanel {
-  width: 40%;
-  margin: auto;
-  font-size: 1.2rem;
-}
-
-.registerTitle {
-  text-align: center;
-}
-
-.field {
+.form-signup {
   width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  box-sizing: border-box;
-}
-
-.field:focus {
-  border: solid black 1px;
-}
-
-@media only screen and (max-width: 768px) {
-  [class*='loginPanel'] {
-    width: 80%;
-  }
+  max-width: 330px;
 }
