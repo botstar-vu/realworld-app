@@ -1,0 +1,24 @@
+.banner {
+  background-color: rgb(115, 123, 170);
+  color: white;
+  font-weight: 700;
+  text-align: center;
+  padding: 1em 0 1rem 0;
+}
+
+.btn-free {
+  background-color: white;
+  outline: 0;
+  border: none;
+}
+
+.btn-selected {
+  background-color: white;
+  border: none;
+  outline: 0;
+  border-bottom: solid black 2px;
+}
+
+.toggle-button {
+  padding: 0.5em 0.8em 0.5em 0.8em;
+}
