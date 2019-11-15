@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Article } from '../shared/article.model';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ArticleService } from '../shared/article.service';
 import { ErrorLogService } from 'src/app/shared/error-log.service';
 import { SessionService } from 'src/app/shared/session.service';
@@ -18,6 +18,7 @@ export class ArticleComponent implements OnInit {
 
   constructor(
     private activeRoutes: ActivatedRoute,
+    private routes: Router,
     private articleService: ArticleService,
     private errorService: ErrorLogService,
     private sessionService: SessionService,
@@ -50,6 +51,20 @@ export class ArticleComponent implements OnInit {
         this.username = response.username;
       }
     )
+  }
+
+  delete() {
+    this.articleService.delete(this.article._id).then(
+      response => {
+        if (response.message) {
+          this.errorService.notify(response.message);
+        }
+      }
+    )
+  }
+
+  edit() {
+    this.routes.navigate([`/editor/${this.article._id}`]);
   }
 
 }

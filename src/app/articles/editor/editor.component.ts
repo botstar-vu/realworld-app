@@ -26,8 +26,18 @@ export class EditorComponent implements OnInit {
   }
 
   initArticle() {
-    if (this.activeRoutes.snapshot.params.length > 0) {
-      // TODO: load article
+    console.log('init article');
+    if (this.activeRoutes.snapshot.params.id) {
+      let id = this.activeRoutes.snapshot.params.id;
+      this.articleService.load(id).then(
+        response => {
+          if (response.article) {
+            this.article = response.article;
+          } else {
+            this.errorService.notify(response.message);
+          }
+        }
+      )
     } else {
       this.article = new Article();
     }
@@ -38,7 +48,25 @@ export class EditorComponent implements OnInit {
       this.article.tags = this.tags.split(' ');
     }
 
+    if (this.activeRoutes.snapshot.params.id) {
+      this.update();
+    } else {
+      this.create();
+    }
+    
+  }
+
+  private create() {
     this.articleService.publish(this.article).then((response) => {
+      if (!response.article) {
+        this.errorService.clear();
+        this.errorService.add(response.message);
+      }
+    });
+  }
+
+  private update() {
+    this.articleService.update(this.article).then((response) => {
       if (!response.article) {
         this.errorService.clear();
         this.errorService.add(response.message);
