@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ArticleService } from '../shared/article.service';
 import { ErrorLogService } from 'src/app/shared/error-log.service';
 import { SessionService } from 'src/app/shared/session.service';
+import { UserService } from 'src/app/user/shared/user.service';
 
 @Component({
   selector: 'app-article',
@@ -13,12 +14,14 @@ import { SessionService } from 'src/app/shared/session.service';
 export class ArticleComponent implements OnInit {
 
   article: Article;
+  username: string;
 
   constructor(
     private activeRoutes: ActivatedRoute,
     private articleService: ArticleService,
     private errorService: ErrorLogService,
-    private sessionService: SessionService
+    private sessionService: SessionService,
+    private userService: UserService
   ) { }
 
   ngOnInit() {
@@ -32,13 +35,21 @@ export class ArticleComponent implements OnInit {
         response => {
           if (response.article) {
             this.article = response.article;
-            console.log(this.article);
+            this.getUsername();
           } else {
             this.errorService.notify(response.message);
           }
         }
       )
     }
+  }
+
+  getUsername() {
+    this.userService.getUsername(this.article.author).then(
+      response => {
+        this.username = response.username;
+      }
+    )
   }
 
 }

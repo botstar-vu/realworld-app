@@ -17,7 +17,7 @@ export class ArticleService {
 
   publish(article: Article): Promise<{article: Article, message: string}> {
     return new Promise((resolve, reject) => {
-      article.author = this.sessionService.getSession().username;
+      article.author = this.sessionService.getSession().id;
       article.time = new Date();
       this.http.post('/api/article/add', article, {observe: 'response'}).subscribe(
         success => {

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { SessionService } from '../shared/session.service';
 import { Router } from '@angular/router';
+import { UserProfile } from '../user/shared/user-profile.model';
 
 @Injectable({
   providedIn: 'root'
@@ -20,8 +21,8 @@ export class LoginService {
         success => {
           resolve({code: 200, message: 'Success'});
           console.log(success.body);
-          let response = success.body as { token: string, user: any };
-          this.sessionService.saveSession(response.token, response.user.username);
+          let response = success.body as { token: string, user: UserProfile };
+          this.sessionService.saveSession(response.token, response.user.username, response.user._id);
           this.routes.navigate(['/']);
         },
         failure => {
