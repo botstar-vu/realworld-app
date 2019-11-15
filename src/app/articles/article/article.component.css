@@ -1,0 +1,26 @@
+.banner {
+  background-color: rgb(43, 44, 49);
+  color: white;
+  font-weight: 700;
+  padding: 1em 4em 1rem 4em;
+}
+
+.meta {
+  display: inline-block;
+}
+
+.avatar {
+  height: 2em;
+  border-radius: 50%;
+}
+
+.link {
+  line-height: 1em;
+  color: rgb(106, 192, 106);
+}
+
+.date {
+  color: rgb(165, 165, 165);
+  font-size: 0.8em;
+  line-height: 1em;
+}

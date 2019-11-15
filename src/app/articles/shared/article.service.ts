@@ -28,4 +28,18 @@ export class ArticleService {
       )
     });
   }
+
+  load(id: string): Promise<{article: Article, message: string}> {
+    return new Promise((resolve, reload) => {
+      this.http.get(`/api/article/load/${id}`, {observe: 'response'}).subscribe(
+        success => {
+          let result = success.body as Article;
+          resolve({article: result, message: 'success'});
+        },
+        failure => {
+          resolve({article: null, message: failure.error.message});
+        }
+      )
+    })
+  }
 }

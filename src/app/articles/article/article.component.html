@@ -1,1 +1,25 @@
-<p>article works!</p>
+<div class='article' *ngIf='article'>
+  <div class='banner'>
+    <h1 class='my-4'>{{article.title}}</h1>
+    
+    <div class='d-flex flex-column flex-md-row'>
+      <div class='meta mr-auto'>
+        <img class='avatar d-inline-block media align-top' src='assets/avatar.jpg'>
+        <div class='info ml-1 d-inline-block'>
+          <a class='link' routerLink='/profile/{{article.author}}'>{{article.author}}</a>
+          <p class='date my-0'>{{article.time | date:'MMMM dd, yyyy'}}</p>
+        </div>
+      </div>
+      <div class='d-flex-inline-block' *ngIf='this.sessionService.getSession().username==article.author'>
+          <button class='btn btn-success m-1'>Edit article</button>
+          <button class='btn btn-danger m-1'>Delete article</button>
+      </div>
+    </div>
+  </div>
+
+  <div class='content container mt-5 border-bottom'>
+    <p>{{article.content}}</p>
+  </div>
+
+</div>
+<app-error-panel></app-error-panel>
