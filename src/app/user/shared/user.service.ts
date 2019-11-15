@@ -28,7 +28,17 @@ export class UserService {
     });
   }
 
-  saveProfile() {
-
+  saveProfile(profile: UserProfile): Promise<{data:UserProfile, message: string}> {
+    return new Promise((resolve, reject) => {
+      this.http.post(`/api/profile/edit`, {profile}, {observe: 'response'}).subscribe(
+        success => {
+          let result = success.body as UserProfile;
+          resolve({data: result, message: 'Success'});
+        },
+        failure => {
+          resolve({data: null, message: failure.error.message});
+        }
+      )
+    })
   }
 }

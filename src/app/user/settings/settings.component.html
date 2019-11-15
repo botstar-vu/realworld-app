@@ -18,14 +18,14 @@
         <input type='text' class='form-control my-3' id='email' placeholder='Email' 
           [(ngModel)]='profile.email' name='email'/>
 
-        <input type='text' class='form-control my-3' id='password' placeholder='New Password' 
+        <input type='password' class='form-control my-3' id='password' placeholder='New Password' 
           [(ngModel)]='profile.password' name='password'/>
 
         <button type='submit' class='d-block btn btn-success float-right' (click)='save()'>Update Settings</button>
         </fieldset>
       </form>
       <hr>
-      <button class='d-block btn btn-outline-danger float-left' (click)='logout'>Or log out</button>
+      <button class='d-block btn btn-outline-danger float-left' (click)='logout()'>Or log out</button>
     </div>
   </div>
 </div>

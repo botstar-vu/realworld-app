@@ -26,11 +26,19 @@ export class SettingsComponent implements OnInit {
   }
 
   save() {
-
+    this.userService.saveProfile(this.profile).then(
+      response => {
+        if (response.data) {
+          this.profile = response.data;
+        } else {
+          this.errorService.notify(response.message);
+        }
+      }
+    );
   }
 
   logout() {
-    this.sessionService.checkSession();
+    this.sessionService.clearSession();
     this.routes.navigate(['/']);
   }
 
