@@ -1,6 +1,6 @@
 .banner {
-  background-color: rgb(115, 123, 170);
-  color: white;
+  background-color: rgb(228, 228, 228);
+  color: black;
   font-weight: 700;
   text-align: center;
   padding: 1em 0 1rem 0;
@@ -21,4 +21,8 @@
 
 .toggle-button {
   padding: 0.5em 0.8em 0.5em 0.8em;
+}
+
+.avatar {
+  border-radius: 50%;
 }

@@ -46,9 +46,14 @@ export class ProfileComponent implements OnInit {
     )
   }
 
+  clear() {
+    this.articles = [];
+  }
+
   requestOwnPosts() {
+    this.clear();
     this.isPersonal = true;
-    this.feedService.getPersonalPosts(this.sessionService.getSession().username).then(
+    this.feedService.getPersonalPosts(this.sessionService.getSession().id).then(
       response => {
         if (response.data) {
           this.articles = response.data;
@@ -61,6 +66,7 @@ export class ProfileComponent implements OnInit {
   }
 
   requestFavoritePosts() {
+    this.clear();
     this.isPersonal = false;
   }
 
