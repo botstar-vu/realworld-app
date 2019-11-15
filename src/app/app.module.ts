@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +17,7 @@ import { ProfileFavoriteComponent } from './user/profile-favorite/profile-favori
 import { ErrorPanelComponent } from './shared/error-panel/error-panel.component';
 import { ArticleListComponent } from './articles/article-list/article-list.component';
 import { ArticlePreviewComponent } from './articles/article-preview/article-preview.component';
+import { TokenInterceptor } from './shared/token-interceptor';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,13 @@ import { ArticlePreviewComponent } from './articles/article-preview/article-prev
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

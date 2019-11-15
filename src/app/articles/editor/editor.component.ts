@@ -34,7 +34,9 @@ export class EditorComponent implements OnInit {
   }
 
   publish() {
-    this.article.tags = this.tags.split(' ');
+    if (this.tags) {
+      this.article.tags = this.tags.split(' ');
+    }
 
     this.articleService.publish(this.article).then((response) => {
       if (!response.article) {

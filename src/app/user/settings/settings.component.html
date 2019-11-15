@@ -1,1 +1,31 @@
-<p>settings works!</p>
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-6 offset-md-3 col-xs-12 text-center'>
+      <h1 class='h1 font-weight-normal mb-4'>Your Settings</h1>
+      
+      <app-error-panel></app-error-panel>
+      <form  *ngIf='profile'>
+        <fieldset>
+        <input type='text' class='form-control my-3 input-sm' id='image' placeholder='URL of profile picture' 
+          [(ngModel)]='profile.image' name='image'/>
+          
+        <input type='text' class='form-control my-3' id='username' placeholder='Username' 
+          [(ngModel)]='profile.username' name='username'/>
+
+        <textarea class='form-control my-3' id='bio' placeholder='Short bio about you' rows=6
+          [(ngModel)]='profile.bio' name='bio'></textarea>
+
+        <input type='text' class='form-control my-3' id='email' placeholder='Email' 
+          [(ngModel)]='profile.email' name='email'/>
+
+        <input type='text' class='form-control my-3' id='password' placeholder='New Password' 
+          [(ngModel)]='profile.password' name='password'/>
+
+        <button type='submit' class='d-block btn btn-success float-right' (click)='save()'>Update Settings</button>
+        </fieldset>
+      </form>
+      <hr>
+      <button class='d-block btn btn-outline-danger float-left' (click)='logout'>Or log out</button>
+    </div>
+  </div>
+</div>
