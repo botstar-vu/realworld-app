@@ -1,16 +1,19 @@
 .header {
-  background-color: royalblue;
+  background-color: #192a56;
+  font-size: 18px;
 }
 
 .logo {
   text-decoration: none;
+  color: white;
+  font-weight: bold;
+  background-color: #718093;
+  padding: 0.3em 0.5em 0.3em 0.5em;
+  box-sizing: border-box;
 }
 
-.nav-menu {
-  list-style-type: none;
-  display: inline;
-}
-
-.nav-item {
-  float: right;
+.nav-btn {
+  color: white;
+  font-weight: 600;
+  padding: 0.5em 1em 0.3em 1em;
 }

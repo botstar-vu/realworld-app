@@ -1,19 +1,32 @@
+.home-page {
+  background-color: white;
+  padding-top: 0.5em;
+}
+
 .banner {
   background-color: rgb(115, 123, 170);
   color: white;
   font-weight: 700;
   text-align: center;
-  padding: 1em 0 1rem 0;
+}
+
+.feed {
+  background-color: transparent;
+}
+
+.feed-toggle {
+  background-color: #353b48;
+  padding: 0.3em 0 0.3em 0;
 }
 
 .btn-free {
-  background-color: white;
+  background-color: #353b48;
   outline: 0;
-  border: none;
+  border: solid white 1px;
+  color: white;
 }
 
 .btn-selected {
-  background-color: white;
   border: none;
   outline: 0;
   border-bottom: solid black 2px;
@@ -21,4 +34,6 @@
 
 .toggle-button {
   padding: 0.5em 0.8em 0.5em 0.8em;
+  margin: 0 1em 0 1em;
+  border-radius: 3px;
 }
