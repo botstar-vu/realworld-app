@@ -8,7 +8,7 @@
 
   <div class='container page'>
     <div class='row'>
-      <div class='feed col-sm-9 px-0'>
+      <div class='feed col-sm-9 offset-md-2 px-0'>
         <div class='feed-toggle md-0 pd-5'>
           <button [ngClass]='isPublic ? "btn-free" : "btn-selected"' class='toggle-button'
             (click)='requestPersonalFeed()'>
@@ -20,9 +20,6 @@
           </button>
         </div>
         <app-article-list [articles]='articles'></app-article-list>
-      </div>
-      <div class='col-sm-3'>
-        <span>List of tags</span>
       </div>
     </div>
   </div>
