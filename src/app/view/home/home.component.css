@@ -11,7 +11,8 @@
 }
 
 .feed {
-  background-color: transparent;
+  background-color: #dcdde1;
+  border: solid 1px black;
 }
 
 .feed-toggle {

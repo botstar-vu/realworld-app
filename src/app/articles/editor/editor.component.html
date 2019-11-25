@@ -1,4 +1,4 @@
-<form class='form-editor p-1 m-auto'>
+<form class='form-editor p-2 mt-1 mx-auto'>
     
     <input type='text' class='form-control my-2' id='title' placeholder='Article title' required
       [(ngModel)]='article.title' name='title'>
@@ -11,8 +11,10 @@
 
       <input type='text' class='form-control my-2' id='tags' placeholder="Enter tags" required
       [(ngModel)]='tags' name='tags'>
-
-    <button type='submit' class='btn btn-success float-right' (click)='publish()'>Publish</button>
-
+    <div class='row  justify-content-end'>
+      <div class='col-md-2'>
+        <button type='submit' class='btn btn-success' (click)='publish()'>Publish</button>
+      </div>
+    </div>
     <app-error-panel class='my-2'></app-error-panel>
   </form>

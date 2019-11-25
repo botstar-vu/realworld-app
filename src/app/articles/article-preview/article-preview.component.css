@@ -1,8 +1,8 @@
 .preview {
   background-color: white;
-  border: solid 2px #192a56;
-  box-shadow: 2px 2px 2px #192a56;
+  border: solid 1px #192a56;
   border-radius: 5px;
+  width: 98%;
 }
 
 .avatar {
