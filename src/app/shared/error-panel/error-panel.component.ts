@@ -15,4 +15,12 @@ export class ErrorPanelComponent implements OnInit {
   ngOnInit() {
   }
 
+  hasMessages(): boolean {
+    return this.logService.messages && this.logService.messages.length > 0;
+  }
+
+  getMessages(): string[] {
+    return this.logService.messages;
+  }
+
 }

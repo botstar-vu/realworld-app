@@ -20,7 +20,7 @@ export class RegisterService {
     return new Promise((resolve, reject) => {
       this.http.post('/api/auth/register', {email: email, username: username, password: password}, {observe:'response'}).subscribe(
         success => {
-          let response = success.body as { token: string, user: UserProfile }
+          const response = success.body as { token: string, user: UserProfile }
           this.sessionService.saveSession(response.token, response.user.username, response.user._id);
           this.routes.navigate(['/']);
           resolve({code: 200, msg: 'login success'});

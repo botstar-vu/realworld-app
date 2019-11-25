@@ -32,8 +32,8 @@ export class UserService {
     return new Promise((resolve, reject) => {
       this.http.post(`/api/profile/edit`, {profile}, {observe: 'response'}).subscribe(
         success => {
-          let token = success.body['token'] as string;
-          let result = success.body['user'] as UserProfile;
+          const token = success.body['token'] as string;
+          const result = success.body['user'] as UserProfile;
           this.sessionService.saveSession(token, result.username, result._id);
           resolve({data: result, message: 'Success'});
         },
@@ -45,11 +45,10 @@ export class UserService {
   }
 
   getUsername(id: string): Promise<{username: string}> {
-    console.log('sent id', id);
     return new Promise((resolve, reject) => {
       this.http.get(`/api/profile/id/${id}`, { observe: 'response' }).subscribe(
         success => {
-          let result = success.body as { username: string }
+          const result = success.body as { username: string }
           resolve(result);
         },
         failure => {

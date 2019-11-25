@@ -1,4 +1,4 @@
-<div class='article' *ngIf='article'>
+<div  *ngIf='article' class='article'>
 
   <div class='banner px-2 px-md-5'>
         <h1 class='my-4'>{{article.title}}</h1>
@@ -6,16 +6,16 @@
         <div class='d-flex flex-column flex-md-row mx-0'>
 
           <div class='meta mr-auto mb-3'>
-            <img class='avatar d-inline-block media align-top' src='assets/avatar.jpg'>
+            <img  src='assets/avatar.jpg' class='avatar d-inline-block media align-top'>
             <div class='info ml-1 d-inline-block'>
-              <a class='link' routerLink='/profile/{{username}}'>{{username}}</a>
+              <a  routerLink='/profile/{{username}}' class='link'>{{username}}</a>
               <p class='date my-0'>{{article.time | date:'MMMM dd, yyyy'}}</p>
             </div>
           </div>
           
-          <div class='d-flex-inline-block' *ngIf='this.sessionService.getSession().id==article.author'>
-              <button class='btn btn-success m-1' (click)='edit()'>Edit article</button>
-              <button class='btn btn-danger m-1' (click)='delete()'>Delete article</button>
+          <div *ngIf='this.sessionService.getSession().id==article.author' class='d-flex-inline-block'>
+              <button (click)='edit()' class='btn btn-success m-1'>Edit article</button>
+              <button (click)='delete()' class='btn btn-danger m-1'>Delete article</button>
           </div>
         </div>
 

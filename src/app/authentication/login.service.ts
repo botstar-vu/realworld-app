@@ -21,7 +21,7 @@ export class LoginService {
         success => {
           resolve({code: 200, message: 'Success'});
           console.log(success.body);
-          let response = success.body as { token: string, user: UserProfile };
+          const response = success.body as { token: string, user: UserProfile };
           this.sessionService.saveSession(response.token, response.user.username, response.user._id);
           this.routes.navigate(['/']);
         },

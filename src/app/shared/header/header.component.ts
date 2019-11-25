@@ -13,4 +13,12 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
+  isLogin(): boolean {
+    return this.sessionService.checkSession();
+  }
+
+  getUsername(): string {
+    return this.sessionService.getSession().username;
+  }
+
 }

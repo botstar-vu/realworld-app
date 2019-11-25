@@ -30,7 +30,7 @@ export class ArticleComponent implements OnInit {
   }
 
   loadArticle() {
-    let id = this.activeRoutes.snapshot.params['id'] as string;
+    const id = this.activeRoutes.snapshot.params['id'] as string;
     if (id && id.length > 0) {
       this.articleService.load(id).then(
         response => {

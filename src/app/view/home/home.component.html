@@ -1,5 +1,5 @@
 <div class='home-page'>
-  <div *ngIf='!this.sessionService.checkSession()' class='banner'>
+  <div *ngIf='!isLoggedIn()' class='banner'>
     <div class='container'>
       <h1 class='h1'>Realworld</h1>
       <p>A project to learn Angular, NodeJS, MongoDB, Bootstrap</p>

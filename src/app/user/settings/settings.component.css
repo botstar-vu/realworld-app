@@ -1,4 +1,8 @@
 .form-settings {
-  width: 100%;
-  max-width: 330px;
+  max-width: 768px;
+  border: solid 1px #192a56;
+  border-radius: 4px;
+  box-shadow: 2px 2px 2px #192a56;
+  background-color: #dcdde1;
+  padding: 2em;
 }

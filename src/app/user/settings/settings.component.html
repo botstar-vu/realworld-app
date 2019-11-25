@@ -1,10 +1,12 @@
 <div class='container'>
   <div class='row'>
-    <div class='col-md-6 offset-md-3 col-xs-12 text-center'>
-      <h1 class='h1 font-weight-normal mb-4'>Your Settings</h1>
+    <div class='col-md-8 offset-md-2 col-xs-12 text-center'>
       
       <app-error-panel></app-error-panel>
-      <form  *ngIf='profile'>
+      <form *ngIf='profile' class='form-settings'>
+        
+        <h1 class='h1 font-weight-normal mb-4'>Your Settings</h1>
+        
         <fieldset>
         <input type='text' class='form-control my-3 input-sm' id='image' placeholder='URL of profile picture' 
           [(ngModel)]='profile.image' name='image'/>

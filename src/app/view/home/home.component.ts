@@ -23,11 +23,19 @@ export class HomeComponent implements OnInit {
     this.requestGlobalFeed();
   }
 
+  isLoggedIn(): boolean {
+    return this.sessionService.checkSession();
+  }
+
   requestPersonalFeed() {
     this.clearFeed();
-    if (this.sessionService.checkSession()) {
+    if (this.isLoggedIn()) {
       this.isPublic = false;
-      // load personal feed
+      this.feedService.getPersonalPosts().then(
+        response => {
+          if (response.data) this.articles = response.data;
+        }
+      )
     } else {
       this.routes.navigate(['/login']);
     }

@@ -28,7 +28,7 @@ export class EditorComponent implements OnInit {
   initArticle() {
     console.log('init article');
     if (this.activeRoutes.snapshot.params.id) {
-      let id = this.activeRoutes.snapshot.params.id;
+      const id = this.activeRoutes.snapshot.params.id;
       this.articleService.load(id).then(
         response => {
           if (response.article) {

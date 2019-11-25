@@ -34,7 +34,7 @@ export class ProfileComponent implements OnInit {
   }
 
   load() {
-    let username = this.routes.snapshot.params['username'];
+    const username = this.routes.snapshot.params['username'];
     this.userService.loadProfile(username).then(
       response => {
         if (response.data) {
@@ -53,7 +53,7 @@ export class ProfileComponent implements OnInit {
   requestOwnPosts() {
     this.clear();
     this.isPersonal = true;
-    this.feedService.getPersonalPosts(this.sessionService.getSession().id).then(
+    this.feedService.getPersonalPosts().then(
       response => {
         if (response.data) {
           this.articles = response.data;

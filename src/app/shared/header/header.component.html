@@ -1,18 +1,21 @@
 <div class='header d-flex flex-column flex-md-row align-items-center pt-3 px-md-4 pb-md-3'>
   <a routerLink='/' class='logo mr-md-auto'><h1>RW</h1></a>
   <nav class='my-2 my-md-0 mr-md-3'>
-    <a class='nav-btn'routerLink='/'>Home</a>
+    <a class='nav-btn' routerLink='/'>Home</a>
     
-    <span *ngIf='!this.sessionService.checkSession()'>
-    <a class='nav-btn'routerLink='/login'>Sign In</a>
-    <a class='nav-btn'routerLink='/register'>Sign Up</a>
+    <span *ngIf='isLogin(); then sessionButtons else nonSessionButtons'>
     </span>
 
-    <span *ngIf='this.sessionService.checkSession()'>
-        <a class='nav-btn'routerLink='/editor'>New Article</a>
-        <a class='nav-btn'routerLink='/settings'>Settings</a>
-        <a class='nav-btn'routerLink='/profile/{{this.sessionService.getSession().username}}'>{{this.sessionService.getSession().username}}</a>
-    </span>
+    <ng-template #nonSessionButtons>
+      <a class='nav-btn' routerLink='/login'>Sign In</a>
+      <a class='nav-btn' routerLink='/register'>Sign Up</a>
+    </ng-template>
+
+    <ng-template #sessionButtons>
+        <a class='nav-btn' routerLink='/editor'>New Article</a>
+        <a class='nav-btn' routerLink='/settings'>Settings</a>
+        <a class='nav-btn' routerLink='/profile/{{getUsername()}}'>{{getUsername()}}</a>
+    </ng-template>
 
   </nav>
 </div>

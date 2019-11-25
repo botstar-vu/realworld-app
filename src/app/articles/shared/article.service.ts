@@ -21,7 +21,7 @@ export class ArticleService {
       article.time = new Date();
       this.http.post('/api/article/add', article, {observe: 'response'}).subscribe(
         success => {
-          let result = success.body as Article;
+          const result = success.body as Article;
           resolve({article: result, message: 'Success'});
           this.routes.navigate([`/article/${result._id}`]);
         },
@@ -37,7 +37,7 @@ export class ArticleService {
       article.time = new Date();
       this.http.post('/api/article/edit', article, {observe: 'response'}).subscribe(
         success => {
-          let result = success.body as Article;
+          const result = success.body as Article;
           resolve({article: result, message: 'Success'});
           this.routes.navigate([`/article/${result._id}`]);
         },
